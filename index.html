@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardenia Science Club - Where Science Blossoms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #c8e6c9;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #1b3a0f 0%, #2d5016 50%, #4a7c2c 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            top: -3rem;
+            right: -3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '🧬';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            bottom: -2rem;
+            left: -2rem;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #c8e6c9;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Event Banner */
+        .event-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .event-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-banner .date {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2d5016, #4a7c2c);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .about-card h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Gardenia Info Section */
+        .gardenia-info {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .gardenia-info h3 {
+            color: #2d5016;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gardenia-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .activity-card:hover {
+            transform: scale(1.05);
+        }
+
+        .activity-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+        }
+
+        .contact-info a {
+            color: #c8e6c9;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: white;
+            color: #2d5016;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-btn:hover {
+            background: #c8e6c9;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1b3a0f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(238, 90, 111, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(238, 90, 111, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .slogan {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌸 Gardenia Science Club</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>🌸 Gardenia Science Club 🧬</h1>
+        <p class="slogan">"Where Science Blossoms and Ideas Take Root"</p>
+        <p>A place where science blossoms and brilliant ideas take root. Join us on this exciting journey of discovery! 🌱💡</p>
+        <a href="#contact" class="cta-button">Join Us Today! 🚀</a>
+    </section>
+
+    <!-- Event Banner -->
+    <div class="event-banner">
+        <h2>🧠✨ Curious Minds, This Day is For You! 🧪🌱</h2>
+        <p>Join the Science Club for our Open Day</p>
+        <div class="date">📌 Tuesday, 25 November</div>
+        <p style="font-size: 1.3rem; margin-top: 1rem;">Let's make some experiments happen! 🤎</p>
+        <p style="font-size: 1.1rem; margin-top: 1rem;">⏳ The countdown begins... 🌿</p>
+        <p style="margin-top: 1rem; font-style: italic;">(Coming Soon! 🔬)</p>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Gardenia 🌱</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <h3>✍️ Our Mission</h3>
+                <p>Ready to write your scientific story? Join Gardenia Science Club, where passion for plants meets innovation! Here, your ideas blossom through hands-on workshops, field trips, and collaborative projects.</p>
+            </div>
+            <div class="about-card">
+                <h3>🤝 Our Community</h3>
+                <p>Connect with experts and fellow science lovers. Build lasting relationships with passionate students and professionals who share your love for science and discovery.</p>
+            </div>
+            <div class="about-card">
+                <h3>🚀 Your Journey</h3>
+                <p>Your journey starts here! Join us today and let's grow together. Explore biotechnology, agronomy, and innovative research in a supportive environment.</p>
+            </div>
+        </div>
+
+        <!-- Gardenia Flower Info -->
+        <div class="gardenia-info">
+            <h3>🌸 The Beautiful Gardenia</h3>
+            <p>A genus of flowering plants in the coffee family, Rubiaceae. Its sweet fragrance and creamy white petals are just captivating! Did you know it was named after Scottish naturalist Dr. Alexander Garden? 🤍✨</p>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+        <h2 class="section-title">What We Offer 🎯</h2>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="icon">🔬</div>
+                <h3>Hands-on Workshops</h3>
+                <p>Practical experiments and lab sessions</p>
+            </div>
+            <div class="activity-card">
+                <div class="icon">🌾</div>
+                <h3>Field Trips</h3>
+                <p>Explore real-world applications</p>
+            </div>
+            <div class="activity-card">
+                <div class="icon">🤝</div>
+                <h3>Collaborative Projects</h3>
+                <p>Work with peers on innovative ideas</p>
+            </div>
+            <div class="activity-card">
+                <div class="icon">🌱</div>
+                <h3>Biotechnology</h3>
+                <p>Cutting-edge plant science research</p>
+            </div>
+            <div class="activity-card">
+                <div class="icon">👨‍🔬</div>
+                <h3>Expert Mentorship</h3>
+                <p>Learn from experienced scientists</p>
+            </div>
+            <div class="activity-card">
+                <div class="icon">🎓</div>
+                <h3>Student Life</h3>
+                <p>Build your scientific community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section">
+            <h2 style="margin-bottom: 1rem;">Get In Touch 📬</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to join our community of future scientists?</p>
+            
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:gardenia.club.umbb@gmail.com">gardenia.club.umbb@gmail.com</a></p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@gardenia_club_umbb" target="_blank" class="social-btn">
+                    🎵 TikTok: @gardenia_club_umbb
+                </a>
+                <a href="https://www.instagram.com/gardenia_club_umbb" target="_blank" class="social-btn">
+                    📸 Instagram: @gardenia_club_umbb
+                </a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.1rem;">👉 Join us today and let's grow together! 🌱</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>#GardeniaScienceClub #WhereScienceBlooms #STEM #YoungScientists</p>
+        <p style="margin-top: 1rem;">#ScienceCommunity #Innovation #Plants #Biotechnology #Agronomy #StudentLife #FutureScientists</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">© 2024 Gardenia Science Club UMBB. All rights reserved.</p>
+    </footer>
+</body>
+</html>
